@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirection</title>
+    <script>
+
+const offers={
+    "url-23":"https://aureumpoculum.com/0/0/0/1a7bbb4bf014a4adf0b957924918cf80/14",
+    "unsub-23":"https://aureumpoculum.com/0/0/0/u1a7bbb4bf014a4adf0b957924918cf80/"
+
+}
+const hash=window.location.hash.replace('#','');
+const parts=hash.split('/').filter(x=>x.length);
+console.log(offers,parts)
+let link=offers[parts[0]];
+//if(!link) window.location="https://www.google.com"
+const mailerId=parts[1];
+const listId=parts[2];
+const emailId=parts[3];
+
+
+link=link.replace("listId",listId)
+        .replace("emailId",emailId)
+        .replace("mailerId",mailerId)
+        .replace("other",parts.slice(3).join("|"))
+window.location.href=link;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
